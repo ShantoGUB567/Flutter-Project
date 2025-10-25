@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:weather_app/home.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-void main() {
+Future<void> main() async {
+
+  // ensure binding
+  WidgetsFlutterBinding.ensureInitialized();
+
+  // load .env file
+  await dotenv.load(fileName: ".env");
+
   runApp(const MyApp());
 }
 

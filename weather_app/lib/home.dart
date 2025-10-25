@@ -80,6 +80,7 @@ class _HomeActivityState extends State<HomeActivity> {
               SizedBox(height: 20,),
               TextField(
                 controller: _controller,
+                keyboardType: TextInputType.text,
                 decoration: InputDecoration(
                   hintText: "Enter your city",
                   filled: true,
