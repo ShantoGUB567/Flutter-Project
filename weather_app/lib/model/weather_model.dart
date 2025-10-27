@@ -1,35 +1,40 @@
 class Weather {
   final String cityName;
   final double temperature;
-  final double temp_max;
-  final double temp_min;
+  final double feelTemp;
+  final double tempMax;
+  final double tempMin;
   final String description;
-  final String humidity;
-  final double windSeed;
+  final int humidity;
+  final double windSpeed;
   final int sunrise;
   final int sunset;
 
-  Weather ({
+  Weather({
     required this.cityName,
     required this.temperature,
-    required this.temp_max,
-    required this.temp_min,
+    required this.feelTemp,
+    required this.tempMax,
+    required this.tempMin,
     required this.description,
     required this.humidity,
-    required this.windSeed,
+    required this.windSpeed,
     required this.sunrise,
     required this.sunset,
-});
-  factory Weather.fromJson(Map<String, dynamic> json){
+  });
+
+  factory Weather.fromJson(Map<String, dynamic> json) {
     return Weather(
-        cityName: json["name"],
-        temperature: json["main"]["temp"] -273.15,
-        temp_max: json["main"]["temp_max"] -273.15,
-        temp_min: json["main"]["temp_min"] -273.15,
-        description: json["weather"]["description"],
-        humidity: json["main"]["humidity"],
-        windSeed: json["wind"]["speed"],
-        sunrise: json["sys"]["sunrise"],
-        sunset: json["sys"]["sunset"]);
+      cityName: json["name"],
+      temperature: json["main"]["temp"].toDouble(),
+      feelTemp: json["main"]["feels_like"].toDouble(),
+      tempMax: json["main"]["temp_max"].toDouble(),
+      tempMin: json["main"]["temp_min"].toDouble(),
+      description: json["weather"][0]["description"],
+      humidity: json["main"]["humidity"].toInt(),
+      windSpeed: json["wind"]["speed"].toDouble(),
+      sunrise: json["sys"]["sunrise"],
+      sunset: json["sys"]["sunset"],
+    );
   }
 }
