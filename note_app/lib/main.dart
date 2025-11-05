@@ -16,9 +16,7 @@ void main() async {
     anonKey: dotenv.env['API_Key'] ?? '',
   );
 
-
   // print("API_KEY = ${dotenv.env['API_Key']}");
-
 
   runApp(const MyApp());
 }
