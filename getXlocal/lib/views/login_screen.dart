@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_local/API_Photo/models/api_photo_screen.dart';
 import 'package:getx_local/API_Practice/views/api_screen.dart';
 import 'package:getx_local/controllers/login_controllers.dart';
 
@@ -178,7 +179,34 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               child: const Center(
                 child: Text(
-                  "Login",
+                  "API Practice",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+
+            SizedBox(height: 50,),
+
+            // API Photo Screen buttons
+            ElevatedButton(
+              onPressed: () {
+                Get.to(() => ApiPhotoScreen());
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Theme.of(context).colorScheme.primary,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                padding:
+                const EdgeInsets.symmetric(vertical: 14, horizontal: 40),
+              ),
+              child: const Center(
+                child: Text(
+                  "Photo by API",
                   style: TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.bold,
