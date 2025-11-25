@@ -1,8 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
-import 'package:get/get.dart';
-import 'package:http/http.dart';
+import 'package:get/get.dart' ;
+import 'package:http/http.dart' as http;
 
 class LoginControllers extends GetxController {
   final emailController = TextEditingController().obs;
@@ -11,7 +11,7 @@ class LoginControllers extends GetxController {
   Future<void> loginAPI() async {
 // https://fakeapi.platzi.com/en/rest/auth-jwt/#login
     try{
-      final response = await post(Uri.parse('https://api.escuelajs.co/api/v1/auth/login'),
+      final response = await http.post(Uri.parse('https://api.escuelajs.co/api/v1/auth/login'),
           body: {
             "email": emailController.value.text,
             "password": passwordController.value.text
