@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_local/API_Practice/views/api_screen.dart';
 import 'package:getx_local/controllers/login_controllers.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -160,7 +161,32 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
             ),
         
-            const SizedBox(height: 30),
+            const SizedBox(height: 50),
+
+            // API Screen buttons
+            ElevatedButton(
+              onPressed: () {
+                Get.to(() => ApiScreen());
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Theme.of(context).colorScheme.primary,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                padding:
+                const EdgeInsets.symmetric(vertical: 14, horizontal: 40),
+              ),
+              child: const Center(
+                child: Text(
+                  "Login",
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
           ],
         ),
       )),

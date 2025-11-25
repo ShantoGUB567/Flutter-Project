@@ -9,9 +9,9 @@ class LoginControllers extends GetxController {
   final passwordController = TextEditingController().obs;
 
   Future<void> loginAPI() async {
-
+// https://fakeapi.platzi.com/en/rest/auth-jwt/#login
     try{
-      final response = await post(Uri.parse('https://reqres.in/api/login'),
+      final response = await post(Uri.parse('https://api.escuelajs.co/api/v1/auth/login'),
           body: {
             "email": emailController.value.text,
             "password": passwordController.value.text
